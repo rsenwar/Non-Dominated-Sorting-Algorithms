@@ -106,18 +106,14 @@ int main() {
 
         while(1) {
             
-            int f = 0, size_k = Fronts[k].size();
+            int dominance = 0;, size_k = Fronts[k].size();
             for(int i=size_k-1;i>=0;i--) {
-                int dominance = 0;
-                if(Dom_degree_matrix[Fronts[k][i]][sorted_indices[ptr]]==m)
+                if(Dom_degree_matrix[Fronts[k][i]][sorted_indices[ptr]]==m) {
                     dominance = 1;
-                
-                if(dominance) {
-                    f = 1; 
                     break;
                 }
             }
-            if(f) {
+            if(dominance) {
                 k++;
                 if(k>=front_count) {
                     Fronts.push_back({sorted_indices[ptr]});
