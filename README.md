@@ -10,4 +10,4 @@ Dataset contains randomly generated data for objective values, M = 2, 5, 10, 15.
 For each objective, there is data for different number of solutions, N = 100, 200, 300, ... 2000
 For each number of solutions, there are 50 dataset files.
 
-Filename format: data_N_M_i, where 1<=i<=50
+Filename format: data_N_M_i, where i: File number, N: Number of solutions & M: Number of objectives
