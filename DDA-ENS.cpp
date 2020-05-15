@@ -81,8 +81,6 @@ int main() {
     auto start = high_resolution_clock::now(); 
     ifstream fi;
     fi.open("data_100_2_1.txt");
-    ofstream fo;
-    fo.open("output.txt");
     fi>>n>>m;
     vector<vector<double> > P(n, vector<double>(m+1,0));
     for(int i=0;i<n;i++) {
@@ -98,46 +96,37 @@ int main() {
     vector<vector<int> > Fronts;
     vector<int> sorted_indices = presort(P);
     int front_count = 0;
-
-    Fronts.push_back({sorted_indices[0]});
-    front_count++;
-    for(int ptr=1;ptr<n;ptr++) {
-        int k = 0;
-
-        while(1) {
-            
-            int dominance = 0;, size_k = Fronts[k].size();
-            for(int i=size_k-1;i>=0;i--) {
-                if(Dom_degree_matrix[Fronts[k][i]][sorted_indices[ptr]]==m) {
-                    dominance = 1;
+    for(int sol:sorted_indices) {
+        bool isInserted = 0;
+        for(int k=0;k<front_count;k++) {
+            bool isDominated = 0;
+            for(int sol_d:Fronts[k]) {
+                if(Dom_degree_matrix[sol_d][sol]==m) {
+                    isDominated = 1;
                     break;
                 }
             }
-            if(dominance) {
-                k++;
-                if(k>=front_count) {
-                    Fronts.push_back({sorted_indices[ptr]});
-                    front_count++;
-                    break;
-                }
-            } else {
-                Fronts[k].push_back(sorted_indices[ptr]);
+            if(!isDominated) {
+                Fronts[k].push_back(sol);
+                                    isInserted = 1;
                 break;
             }
-        }    
+        }
+        if(!isInserted) {
+            front_count++;
+            Fronts.push_back({sol});
+        } 
     }
     auto stop = high_resolution_clock::now(); 
     auto duration = duration_cast<microseconds>(stop - start); 
      cout << "Time taken by function: "
          << duration.count() << " microseconds" << endl; 
     for(int i=0;i<front_count;i++) {
-        fo<<"Front "<<i+1<<":\n";
+        cout<<"Front "<<i+1<<":\n";
         for(int j=0;j<Fronts[i].size();j++) {
-            fo<<Fronts[i][j]<<" ";
+            cout<<Fronts[i][j]<<" ";
         }
-        fo<<"\n\n";
+        cout<<"\n\n";
     }
-
-
     return 0;
 }
