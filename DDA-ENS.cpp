@@ -11,10 +11,8 @@ vector<vector<int> > cnstCompMat(vector<double> w) {
     }
     sort(a_b.begin(), a_b.end());
     vector<vector<int> > C_w(n, vector<int> (n, 0));
-
     for(int j=0;j<n;j++) 
         C_w[a_b[0].second][j] = 1;
-    cout<<endl;
     for(int i=1;i<n;i++) { 
         if(a_b[i].first==a_b[i-1].first) {
             for(int j=0;j<n;j++)
