@@ -108,7 +108,7 @@ int main() {
             }
             if(!isDominated) {
                 Fronts[k].push_back(sol);
-                                    isInserted = 1;
+                isInserted = 1;
                 break;
             }
         }
