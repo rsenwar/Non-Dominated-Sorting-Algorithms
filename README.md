@@ -8,13 +8,11 @@ Implementation of some non-dominated sorting algorithms:
 ## Dataset:
 There are two types of Datasets used for experimentation.
 
-**1. Cloud Dataset:** Solutions randomly sampled from a uniform distribution on the interval [0,1]. Number of solutions vary from 100 to 5000 with an increment of 100, total 50 set of solutions. Four different number of objectives – 2, 5, 10 and 15 are considered. Total data files, 50*4 = 200.
-
+**1. Cloud Dataset:** Solutions randomly sampled from a uniform distribution on the interval [0,1]. Number of solutions vary from 100 to 5000 with an increment of 100, total 50 set of solutions. Four different number of objectives – 2, 5, 10 and 15 are considered. Total data files, 50*4 = 200.<br />
 Data file name format: *data_M_N.txt*, where M represents the number of objectives and N represents the number of solutions.
 
 
-**2. Fixed fronts Dataset:** The number of fronts has been varied from 2 to 70 with an increment of 1. Thus, a total of 69 populations. Number of solutions fixed to N = 2000, Four different objectives - 2, 5, 10, 15 are considered. For each objective there are 69 data files. Total data files, 69*4 = 276.
-
+**2. Fixed fronts Dataset:** The number of fronts has been varied from 2 to 70 with an increment of 1. Thus, a total of 69 populations. Number of solutions fixed to N = 2000, Four different objectives - 2, 5, 10, 15 are considered. For each objective there are 69 data files. Total data files, 69*4 = 276.<br />
 Data file name format: *data_M_k.txt*, where M represents the number of objectives and k represents the number of fronts.
 
 
